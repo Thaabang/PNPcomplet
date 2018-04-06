@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author User
  */
+//@Controller annotation indicates that a particular class serves the role of a controller. 
+//acts as a stereotype for the annotated class, indicating its role. 
 @Controller
 public class PicknPayMainController {
     
@@ -105,5 +107,18 @@ public class PicknPayMainController {
         return "driverHomePage";
     }
     
-     
+     @RequestMapping(value = "/orderListPage", method = RequestMethod.GET)
+    public String listPage()
+    {
+        return "orderListPage";
+    }
+    
+     @RequestMapping(value = "/ordViewPage", method = RequestMethod.GET)
+    public String viewPage()
+    {
+        return "ordViewPage";
+    }
+    
+    
+    
 }

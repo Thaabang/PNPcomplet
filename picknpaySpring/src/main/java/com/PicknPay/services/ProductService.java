@@ -5,19 +5,20 @@
  */
 package com.PicknPay.services;
 
+import com.PicknPay.model.Product;
+import com.PicknPay.repositories.ProductRepository;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.PicknPay.model.Product;
-import com.PicknPay.repositories.ProductRepository;
 
 /**
  *
  * @author User
  */
+//annotation is used to annotate classes that perform service tasks
 @Service
 public class ProductService{
+    //Marks a constructor, method or config method as to be autowired by Spring's dependency injection facilities.
     @Autowired
     private ProductRepository productRepository;
     
@@ -36,12 +37,6 @@ public class ProductService{
     {
         return productRepository.deleteProduct(productId);
     }
-
-    public int updateProduct(int productId, String name, String cat, double price)
-    {
-        
-        return productRepository.updateProduct(productId, name, cat, price);
-    }
     
     public ArrayList<Product> findProductByCategory(String category)
     {
@@ -51,6 +46,19 @@ public class ProductService{
     public Product findProductByProductId(int productId)
     {
         return productRepository.findOne(productId);
+    }
+      public int updateQuantity(int productId, int quantity)
+    {
+        return productRepository.updateQuantity(productId, quantity);
+    }
+
+      public int updateProdQuantity(int quantity)
+      {
+          return productRepository.updateOrderQuantity(quantity);
+      }
+      
+   public ArrayList<Product> findAllOrde() {
+     return productRepository.findAllOrd();
     }
     
 }

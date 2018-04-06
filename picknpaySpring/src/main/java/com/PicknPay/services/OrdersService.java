@@ -6,6 +6,7 @@
 package com.PicknPay.services;
 
 import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,10 @@ import com.PicknPay.repositories.OrdersRepository;
  *
  * @author User
  */
+//annotation is used to annotate classes that perform service tasks
 @Service
 public class OrdersService {
-    
+    //Marks a constructor, method or config method as to be autowired by Spring's dependency injection facilities.
     @Autowired
     private OrdersRepository orderRepository;
     

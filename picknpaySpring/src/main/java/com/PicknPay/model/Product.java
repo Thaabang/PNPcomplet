@@ -28,8 +28,9 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Product.findByCategory", query = "SELECT p FROM Product p WHERE p.category = :category")
     , @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")})
 public class Product implements Serializable {
-
+//universal version identifier for a Serializable class
     private static final long serialVersionUID = 1L;
+    //indicating the member field below is the primary key of current entity.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "productID")
@@ -44,22 +45,14 @@ public class Product implements Serializable {
     private double price;
     @Column(name = "image")
     private String image;
+    @Column(name = "totalq") 
+    private Integer totalq;
     
     public Product() {
     }
 
     public Product(Integer productID) {
         this.productID = productID;
-    }
-
-    public Product(Integer productID, String name, String category,Integer quantity , double price, String image) 
-    {
-        this.productID = productID;
-        this.name = name;
-        this.category = category;
-        this.quantity = quantity;
-        this.price = price;
-        this.image = image;
     }
 
     public Integer getProductID() {
@@ -109,4 +102,15 @@ public class Product implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
+    
+    public Integer getTotalq(){
+        return totalq;
+    }
+    
+    public void setTotalq(Integer totalq){
+        
+        this.totalq = totalq;
+        
+    }
+    
 }

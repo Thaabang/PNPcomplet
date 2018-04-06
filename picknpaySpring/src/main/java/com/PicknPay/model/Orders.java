@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "orders")
+//uniquely associate a root element with a class.
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o")
@@ -40,15 +41,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Orders.findByDelivarydate", query = "SELECT o FROM Orders o WHERE o.delivarydate = :delivarydate")
     , @NamedQuery(name = "Orders.findByName", query = "SELECT o FROM Orders o WHERE o.name = :name")
     , @NamedQuery(name = "Orders.findByCategory", query = "SELECT o FROM Orders o WHERE o.category = :category")
-    , @NamedQuery(name = "Orders.findByCity", query = "SELECT o FROM Orders o WHERE o.city = :city")
-    , @NamedQuery(name = "Orders.findByStreet", query = "SELECT o FROM Orders o WHERE o.street = :street")
     , @NamedQuery(name = "Orders.findByQuantity", query = "SELECT o FROM Orders o WHERE o.quantity = :quantity")
     , @NamedQuery(name = "Orders.findByProductID", query = "SELECT o FROM Orders o WHERE o.productID = :productID")
     , @NamedQuery(name = "Orders.findByPrice", query = "SELECT o FROM Orders o WHERE o.price = :price")})
 public class Orders implements Serializable {
-
+//universal version identifier for a Serializable class
     private static final long serialVersionUID = 1L;
     @Id
+    //indicating the member field below is the primary key of current entity.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orderID")
     private int orderID;
@@ -83,12 +83,6 @@ public class Orders implements Serializable {
     @Column(name = "quantity")
     private int quantity;
     
-    @Column(name = "city")
-    private String city;
-    
-    @Column(name = "street")
-    private String street;
-    
     @Column(name = "productID")
     private int productID;
     
@@ -98,28 +92,7 @@ public class Orders implements Serializable {
     @Column(name = "image")
     private String image;
 
-    public Orders() {
-    }
-
-
-    public Orders(int orderID, int orderno, String orderstatus, Date orderdate, int userID, double orderamount, Date delivarydate, String name, String category, int quantity,String city,String street, int productID, double price, String image) {
-        this.orderID = orderID;
-        this.orderno = orderno;
-        this.orderstatus = orderstatus;
-        this.orderdate = orderdate;
-        this.userID = userID;
-        this.orderamount = orderamount;
-        this.delivarydate = delivarydate;
-        this.name = name;
-        this.category = category;
-        this.quantity = quantity;
-        this.city = city;
-        this.street = street;
-        this.productID = productID;
-        this.price = price;
-        this.image = image;
-    }
-
+   
     public int getOrderID() {
         return orderID;
     }
@@ -200,22 +173,6 @@ public class Orders implements Serializable {
         this.quantity = quantity;
     }
 
-     public String getCity() {
-        return city;
-    }
-    
-     public void setCity(String city) {
-        this.city = city;
-    }
-     
-      public String getStreet() {
-        return street;
-    }
-     
-      public void setQuantity(String street) {
-        this.street = street;
-    }
-    
     public int getProductID() {
         return productID;
     }

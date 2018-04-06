@@ -5,21 +5,21 @@
  */
 package com.PicknPay.services;
 
+import com.PicknPay.model.Users;
+import com.PicknPay.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.PicknPay.model.Users;
-import com.PicknPay.repositories.UsersRepository;
-
 /**
  *
  * @author User
  */
+//annotation is used to annotate classes that perform service tasks
 @Service
 public class UsersService {
-    
+    //Marks a constructor, method or config method as to be autowired by Spring's dependency injection facilities.
     @Autowired
     private UsersRepository usersRepository;
     
@@ -43,7 +43,6 @@ public class UsersService {
     
     public Users userLogin(String email)
     {
-   
         return usersRepository.login(email);
     }
     
