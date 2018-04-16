@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- directive designates the root element of the applicaion-->
+<html lang="en-US" ng-app="PicknPayApp">
+    <head>
+        <title>View Order from Admin</title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+	<script src="./js/app.js"></script>
+        
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>           
+
+
+       
+    </head>
+    
+            <style>
+            /* styles the nav bar */ 
+            
+            .navbar {
+                margin-bottom: 50px;
+                border-radius: 0;
+
+                background-color:purple;
+            }
+            
+
+        </style>
+        
+    
+        
+        <body  ng-controller="OrderController">
+             <div class="container" >
+                 <a href="supplierHomePage.html">
+             <img src="./css/images.png" style="width:150;height:50; " /></a>
+           
+             
+                   <nav class="navbar navbar-inverse">
+       <ul class="nav navbar-nav ">
+               <li><a href="">Supplier: {{user.name}} {{user.surname}}</a></li>
+              
+             <li><a href="./">Log Out</a></li>
+            </ul>
+    </nav>
+                 <h1 align="center">New Orders from Admin</h1>
+                 
+              
+               
+            <div class="container">
+                <div class="product-block" ng-repeat="product in order" style="width:20px; height: 100px;font-weight: bold;color: #004579" >
+                   
+                        <h5> {{product.name}}</h5>
+                       <h5>{{product.quantity}}</h5>
+                       
+                     </div>
+                </div >
+                
+            </div>
+                
+                 
+            
+        
+    </body>
+</html>
